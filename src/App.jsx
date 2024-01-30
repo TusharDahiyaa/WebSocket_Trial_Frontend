@@ -1,17 +1,13 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import io from "socket.io-client";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 import NewMessage from "./components/NewMessage";
-import Homepage from "./components/Homepage";
+const socket = io.connect(BASE_URL);
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/chat" element={<NewMessage />} />
-        </Routes>
-      </BrowserRouter>
+      <NewMessage socket={socket} />
     </div>
   );
 }
