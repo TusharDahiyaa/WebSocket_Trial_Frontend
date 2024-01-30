@@ -12,10 +12,4 @@ function App() {
   );
 }
 
-socket.on("connect_error", (err) => {
-  console.log(err.message);
-  console.log(err.description);
-  console.log(err.context);
-});
-
 export default App;
