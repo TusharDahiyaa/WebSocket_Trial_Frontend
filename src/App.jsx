@@ -2,7 +2,7 @@ import "./App.css";
 import io from "socket.io-client";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 import NewMessage from "./components/NewMessage";
-const socket = io.connect(BASE_URL);
+const socket = io(BASE_URL);
 
 function App() {
   return (
